@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Page introuvable · Deco Render</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#F6F2EC">
+<meta name="color-scheme" content="light">
+<script>
+/* GitHub Pages sert cette page pour toute adresse inconnue, quelle que soit sa profondeur :
+   les chemins relatifs doivent donc repartir de la racine du site.
+   Sur *.github.io, la racine est le premier segment (/deco-render/) ; avec un domaine propre, c’est « / ».
+   Ouverte directement (…/404.html), la page n’a besoin d’aucune base. */
+(function () {
+  var path = location.pathname;
+  if (/\/404\.html$/.test(path)) return;
+  var root = /\.github\.io$/.test(location.hostname) ? "/" + path.split("/")[1] + "/" : "/";
+  document.write('<base href="' + root + '">');
+})();
+</script>
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="stylesheet" href="assets/site.css">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="./" aria-label="Deco Render, accueil"><img src="assets/img/icone-192.webp" width="192" height="192" alt=""><span>Deco Render</span></a>
+</header>
+<main class="wrap lost">
+  <section>
+    <h1 class="display">Cette page n’existe pas.</h1>
+    <p class="lead">L’adresse a peut-être changé, ou le lien était incomplet.</p>
+    <p><a class="link" href="./">Revenir à l’accueil</a> · <a class="link" href="support/">Assistance</a></p>
+  </section>
+  <section lang="en">
+    <h2 class="h2">This page does not exist.</h2>
+    <p class="lead">The address may have changed, or the link was incomplete.</p>
+    <p><a class="link" href="en/">Back to the home page</a> · <a class="link" href="en/support/">Support</a></p>
+  </section>
+</main>
+</body>
+</html>
