@@ -50,17 +50,14 @@
   <div class="doc__grid">
     <nav class="toc" aria-label="On this page">
       <p>On this page</p>
-      <ul><li><a href="#responsable">Who is responsible</a></li><li><a href="#iphone">What stays on your iPhone</a></li><li><a href="#rendu">What is sent to create a render</a></li><li><a href="#autorisations">Permissions requested</a></li><li><a href="#achats">Purchases</a></li><li><a href="#absent">What Deco Render does not do</a></li><li><a href="#suppression">Retention and deletion</a></li><li><a href="#droits">Your rights</a></li><li><a href="#enfants">Children</a></li><li><a href="#site">This website</a></li><li><a href="#modifications">Changes</a></li></ul>
+      <ul><li><a href="#responsable">Who is responsible</a></li><li><a href="#iphone">What stays on your iPhone</a></li><li><a href="#rendu">What is sent to create a render</a></li><li><a href="#serveur">What the publisher’s server keeps</a></li><li><a href="#autorisations">Permissions requested</a></li><li><a href="#achats">Purchases</a></li><li><a href="#absent">What Deco Render does not do</a></li><li><a href="#suppression">Retention and deletion</a></li><li><a href="#droits">Your rights</a></li><li><a href="#enfants">Children</a></li><li><a href="#site">This website</a></li><li><a href="#modifications">Changes</a></li></ul>
     </nav>
     <article class="prose">
         <div class="brief">
-          <p><strong>In short.</strong> Deco Render works without an account, without ads, without trackers and without analytics. Reading your photos and 3D scanning both happen on your iPhone. A single upload leaves the device: when you ask for a render, the image to transform and the style brief are sent to the image generation provider, only to produce the image. Your projects stay on your iPhone.</p>
+          <p><strong>In short.</strong> Deco Render works without an account, without ads, without trackers and without analytics. Reading your photos and 3D scanning both happen on your iPhone. A single upload leaves the device: when you ask for a render, the image to transform and the style brief go through the publisher’s server, which passes them on to the image generation provider, only to produce the image. Neither the server nor the provider is used to keep your photos. Your projects stay on your iPhone.</p>
         </div>
 
-        <div class="trial">
-          <p><span class="trial__label">Test version</span></p>
-          <p>This policy describes the test version of Deco Render, distributed through TestFlight, as it stands on 23 November 2026. The “Test version” boxes apply to that version only. The policy will be updated before the app is released on the App Store.</p>
-        </div>
+        <p>Version of 23 November 2026.</p>
 
         <h2 id="responsable">Who is responsible</h2>
         <p>The data controller is the publisher of Deco Render, an independent developer based in Switzerland. This policy applies to the Deco Render app for iPhone and to this website.</p>
@@ -80,14 +77,18 @@
           <li>the image to transform (the photo you chose, or the render you are retouching), resized;</li>
           <li>the style brief, a short text describing what you redo, what you keep and the style or colour you picked.</li>
         </ul>
-        <p>These items are sent over an encrypted connection to the image generation provider <strong>Replicate, Inc.</strong> (United States), which has them processed by the image model it makes available, <strong>only to produce the image you asked for</strong>. The resulting image is then downloaded and saved in your project, on your iPhone.</p>
+        <p>These items travel over an encrypted connection to the publisher’s server, hosted in Switzerland by Infomaniak. The server checks that the request really comes from the app (using Apple’s App Attest service) and that a render is available, then passes the image and the brief on to the image generation provider <strong>Replicate, Inc.</strong> (United States), <strong>only to produce the image you asked for</strong>. The server stores neither the image nor the brief: they only pass through, in memory. The app downloads the resulting image directly from Replicate and saves it in your project, on your iPhone.</p>
+        <p>Replicate has the image computed by the model chosen by the publisher: Seedream, by ByteDance, for a render, and Nano Banana, by Google, for a retouch. To produce the image, Replicate may pass it on to these model publishers, which handle it under their own terms.</p>
         <p>The app attaches no name, email address or advertising identifier to this upload: it has none. As with any internet connection, the provider sees the device’s IP address. It handles the data it receives under its own terms, described in its <a href="https://replicate.com/privacy" rel="noopener">privacy policy</a>.</p>
         <p>This upload involves a transfer of data to the United States. It only happens at your request, for each render, and it is necessary to provide you with the image. Avoid photographing recognisable people or personal documents.</p>
-        <div class="trial">
-          <p><span class="trial__label">Test version</span></p>
-          <p>This upload only happens if a render key has been saved in the Account tab. Without a key, the app shows sample renders prepared in advance and no photo leaves the iPhone. The key is kept in the iPhone keychain and is only sent to the rendering provider.</p>
-          <p>The upload goes straight from the iPhone to Replicate, without passing through a server run by the publisher. The image model used is a Google model: to produce the image, Replicate may pass it on to Google LLC (United States), which handles it under its own terms.</p>
-        </div>
+        <h2 id="serveur">What the publisher’s server keeps</h2>
+        <p>To count free renders and check your subscription, the server keeps, with no name or email address:</p>
+        <ul>
+          <li>a random identifier for your installation of the app, and the App Attest public key that proves requests come from the app;</li>
+          <li>the list of your renders: date, kind (render or retouch), model, status and number of renders used, without the image or the brief;</li>
+          <li>the subscription transactions signed by Apple: transaction identifier, plan, purchase and expiry dates, any refund.</li>
+        </ul>
+        <p>This data is only used to run free renders and the subscription, and to prevent abuse. The server’s technical log keeps the IP address of connections for 14 days at most. The list of renders is kept while the app is in use, because it is the record of free renders used; it is deleted on request.</p>
 
         <h2 id="autorisations">Permissions requested</h2>
         <ul>
@@ -97,7 +98,7 @@
         <p>You can withdraw these permissions at any time in Settings, then Deco Render.</p>
 
         <h2 id="achats">Purchases</h2>
-        <p>Deco Render Pro subscriptions are purchased, billed and managed by Apple. The publisher receives neither your name, nor your address, nor your payment details. The app only reads, on your device, the subscription status provided by Apple in order to remove the watermark.</p>
+        <p>Deco Render Pro subscriptions are purchased, billed and managed by Apple. The publisher receives neither your name, nor your address, nor your payment details. The publisher’s server checks the transaction signed by Apple to activate the subscription. A copy of this transaction is sent to <strong>RevenueCat, Inc.</strong> (United States), a subscription tracking service, tied only to the random identifier of your installation, to produce the publisher’s sales statistics. RevenueCat handles it under its <a href="https://www.revenuecat.com/privacy" rel="noopener">privacy policy</a>.</p>
         <p>Apple gives the publisher aggregated sales statistics. If you agreed, in your iPhone settings, to share analytics with app developers, Apple may also pass on crash reports and usage statistics that do not identify you.</p>
 
         <h2 id="absent">What Deco Render does not do</h2>
@@ -110,14 +111,10 @@
 
         <h2 id="suppression">Retention and deletion</h2>
         <p>Your projects stay on your iPhone for as long as you keep them. You can delete a project from its page, in the Projects tab: its photos and renders are erased. Deleting the app erases all projects. Images you saved to Photos or shared no longer depend on the app and are deleted wherever you put them.</p>
-        <div class="trial">
-          <p><span class="trial__label">Test version</span></p>
-          <p>If you saved a render key, remove it in Account, then Render key, before deleting the app.</p>
-        </div>
 
         <h2 id="droits">Your rights</h2>
         <p>The Swiss Federal Act on Data Protection (FADP) and, where it applies, the European Union’s General Data Protection Regulation (GDPR) give you the right to access your data, to have it corrected or erased, to object to its processing or ask for it to be restricted, and to receive it in a common format.</p>
-        <p>Because the publisher keeps neither your photos nor your projects, most of these rights are exercised directly on your iPhone, by deleting a project or the app. For any other request, use the contact given above. You can also turn to the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland, or to the data protection authority of your country of residence in the European Union.</p>
+        <p>Because the publisher keeps neither your photos nor your projects, most of these rights are exercised directly on your iPhone, by deleting a project or the app. To have the list of your renders deleted from the server, write to the contact given above. For any other request, use the contact given above. You can also turn to the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland, or to the data protection authority of your country of residence in the European Union.</p>
 
         <h2 id="enfants">Children</h2>
         <p>Deco Render is not directed at children and does not knowingly collect any data about them.</p>
